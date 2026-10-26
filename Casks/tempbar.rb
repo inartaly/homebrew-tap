@@ -12,13 +12,19 @@ cask "tempbar" do
 
   app "TempBar.app"
 
-  uninstall quit: "com.inar.tempbar",
-            delete: "~/Library/LaunchAgents/com.inar.tempbar.plist"
+  uninstall quit: "com.inar.tempbar"
 
-  zap trash: "~/Library/Preferences/com.inar.tempbar.plist"
+  zap trash: [
+    "~/Library/LaunchAgents/com.inar.tempbar.plist",
+    "~/Library/Preferences/com.inar.tempbar.plist",
+  ]
 
   caveats <<~EOS
-    TempBar is ad-hoc signed and not notarized. If macOS blocks its first
-    launch, allow it under System Settings → Privacy & Security.
+    TempBar is ad-hoc signed and not notarized. If macOS blocks the first
+    launch, allow it under System Settings → Privacy & Security, or run:
+      xattr -dr com.apple.quarantine /Applications/TempBar.app
+
+    If you enabled Start at Login, remove its LaunchAgent with:
+      brew uninstall --cask --zap tempbar
   EOS
 end

@@ -13,9 +13,17 @@ brew install --cask tempbar
 ```
 
 Homebrew 7 requires third-party taps to be trusted before it will load their
-casks.
+casks. Requires an Apple Silicon Mac and macOS 13 or later.
 
-Requires an Apple Silicon Mac and macOS 13 or later.
+### First launch
+
+Homebrew marks downloaded apps as quarantined. Because TempBar is ad-hoc signed
+but not notarized, macOS may block the first launch. Allow it under
+**System Settings → Privacy & Security**, or run:
+
+```sh
+xattr -dr com.apple.quarantine /Applications/TempBar.app
+```
 
 ### Upgrade
 
@@ -29,14 +37,10 @@ brew upgrade --cask tempbar
 brew uninstall --cask tempbar
 ```
 
-To also remove TempBar preferences:
+To also remove TempBar preferences and its optional Start at Login agent:
 
 ```sh
 brew uninstall --cask --zap tempbar
 ```
 
-### Notes
-
-TempBar is ad-hoc signed but not notarized. If macOS blocks the first launch,
-allow it under **System Settings → Privacy & Security**. See the
-[TempBar repository](https://github.com/inartaly/TempBar) for details.
+See the [TempBar repository](https://github.com/inartaly/TempBar) for details.
