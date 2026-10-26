@@ -7,15 +7,13 @@ Homebrew Casks for apps by [inartaly](https://github.com/inartaly).
 A native menu bar app showing Apple Silicon CPU and GPU temperatures.
 
 ```sh
-brew install --cask inartaly/tap/tempbar
-```
-
-Or:
-
-```sh
 brew tap inartaly/tap
+brew trust inartaly/tap
 brew install --cask tempbar
 ```
+
+Homebrew 7 requires third-party taps to be trusted before it will load their
+casks.
 
 Requires an Apple Silicon Mac and macOS 13 or later.
 
