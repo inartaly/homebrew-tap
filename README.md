@@ -13,7 +13,8 @@ brew install --cask tempbar
 ```
 
 Homebrew 7 requires third-party taps to be trusted before it will load their
-casks. Requires an Apple Silicon Mac and macOS 13 or later.
+casks. Homebrew installs to `/Applications`; if you already installed TempBar
+manually in `~/Applications`, remove that copy first to avoid two menu bar items. Requires an Apple Silicon Mac and macOS 13 or later.
 
 ### First launch
 
